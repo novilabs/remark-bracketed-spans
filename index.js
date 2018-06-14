@@ -86,7 +86,7 @@ function createSpan (data) {
   var id = data.id
 
   var attr = Object.keys(data.attr).map(function (key) {
-    return `data-${key}="${data.attr[key]}"`
+    return `${key}="${data.attr[key]}"`
   }).join(' ')
 
   return `<span${id ? ` id="${id}"` : ''} ${classes ? `class="${classes}"` : ''} ${attr || ''}>${text}</span>`
@@ -144,14 +144,7 @@ function hasDataAttr (props) {
   if (!props) return false
   var keys = Object.keys(props)
   if (!keys.length) return false
-  var i = 0
-  for (i; i < keys.length; i++) {
-    var key = keys[i]
-    if (key.indexOf('data') === 0) {
-      return true
-    }
-  }
-  return false
+  return true;
 }
 
 /* clean up md output */
